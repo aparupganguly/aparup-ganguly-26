@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Solid black background with rounded corners -->
+  <rect width="128" height="128" rx="28" fill="#000000" />
+  
+  <!-- Subtle inner border for a premium refined look -->
+  <rect x="2" y="2" width="124" height="124" rx="26" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.15" />
+
+  <!-- Clean, bold bold 'A' letter in white centered perfectly -->
+  <text x="50%" y="54%" 
+        dominant-baseline="middle" 
+        text-anchor="middle" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+        font-size="76" 
+        font-weight="900" 
+        fill="#FFFFFF"
+        letter-spacing="-0.05em">A</text>
+</svg>
