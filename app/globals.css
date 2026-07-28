@@ -753,11 +753,11 @@ body.nav-open {
   min-width: 0;
 }
 
-.project-name-row .company-icon:not(.company-icon--origin) {
+.project-name-row .company-icon {
   transition: border-color var(--dur) var(--ease-out);
 }
 
-.project-row:hover .project-name-row .company-icon:not(.company-icon--origin) {
+.project-row:hover .project-name-row .company-icon {
   border-color: var(--line-strong);
 }
 
@@ -816,14 +816,7 @@ body.nav-open {
 
 .company-icon--origin {
   object-fit: contain;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 0;
-  box-shadow: none !important;
-  outline: none;
-  filter: none;
-  opacity: 1;
+  padding: 3px;
 }
 
 /* =========================================================
@@ -841,6 +834,8 @@ body.nav-open {
   padding: 12px;
   isolation: isolate;
   transition: transform var(--dur-med) var(--ease-out);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Soft ambient gradient panels (light-theme take on product cards) */
@@ -889,6 +884,7 @@ body.nav-open {
   left: 8px;
   border-top: 1px solid var(--accent-strong);
   border-left: 1px solid var(--accent-strong);
+  border-top-left-radius: 6px;
 }
 
 .cap-corner--tr {
@@ -896,6 +892,7 @@ body.nav-open {
   right: 8px;
   border-top: 1px solid var(--accent-strong);
   border-right: 1px solid var(--accent-strong);
+  border-top-right-radius: 6px;
 }
 
 .cap-corner--bl {
@@ -903,6 +900,7 @@ body.nav-open {
   left: 8px;
   border-bottom: 1px solid var(--accent-strong);
   border-left: 1px solid var(--accent-strong);
+  border-bottom-left-radius: 6px;
 }
 
 .cap-corner--br {
@@ -910,6 +908,7 @@ body.nav-open {
   right: 8px;
   border-bottom: 1px solid var(--accent-strong);
   border-right: 1px solid var(--accent-strong);
+  border-bottom-right-radius: 6px;
 }
 
 .cap-card {
@@ -919,6 +918,7 @@ body.nav-open {
   flex-direction: column;
   gap: 18px;
   min-height: 200px;
+  flex: 1;
   padding: 22px;
   border-radius: 14px;
   border: 1px solid rgba(25, 26, 23, 0.08);
@@ -1139,7 +1139,7 @@ body.nav-open {
   background: var(--canvas);
   width: 100%;
   aspect-ratio: 1;
-  max-width: 340px;
+  max-width: 440px;
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1603,63 +1603,7 @@ body.nav-open {
   transition-delay: 0.16s !important;
 }
 
-/* Keep oscillating values while hovered */
-.loop-cell:hover .loop-bar:nth-child(1) {
-  animation: loop-bar-wave-a 1.1s var(--ease-out) infinite alternate;
-}
-.loop-cell:hover .loop-bar:nth-child(2) {
-  animation: loop-bar-wave-b 1.15s var(--ease-out) 0.05s infinite alternate;
-}
-.loop-cell:hover .loop-bar:nth-child(3) {
-  animation: loop-bar-wave-c 1s var(--ease-out) 0.1s infinite alternate;
-}
-.loop-cell:hover .loop-bar:nth-child(4) {
-  animation: loop-bar-wave-d 1.2s var(--ease-out) 0.08s infinite alternate;
-}
-.loop-cell:hover .loop-bar:nth-child(5) {
-  animation: loop-bar-wave-e 1.05s var(--ease-out) 0.12s infinite alternate;
-}
-
-@keyframes loop-bar-wave-a {
-  from {
-    height: 55%;
-  }
-  to {
-    height: 72%;
-  }
-}
-@keyframes loop-bar-wave-b {
-  from {
-    height: 40%;
-  }
-  to {
-    height: 22%;
-  }
-}
-@keyframes loop-bar-wave-c {
-  from {
-    height: 68%;
-  }
-  to {
-    height: 88%;
-  }
-}
-@keyframes loop-bar-wave-d {
-  from {
-    height: 58%;
-  }
-  to {
-    height: 38%;
-  }
-}
-@keyframes loop-bar-wave-e {
-  from {
-    height: 86%;
-  }
-  to {
-    height: 100%;
-  }
-}
+/* The heights will transition smoothly in a staggered fashion on hover-in and hover-out */
 
 /* =========================================================
    Thesis
@@ -1928,9 +1872,15 @@ body.nav-open {
     padding: 24px;
   }
 
+  .project-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+  }
+
   .project-row {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
     padding: 28px 20px;
@@ -1959,7 +1909,8 @@ body.nav-open {
     width: 18%;
     min-width: 140px;
     justify-content: flex-end;
-    align-self: center;
+    align-self: flex-start;
+    margin-top: 14px;
   }
 }
 
